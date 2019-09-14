@@ -1,3 +1,14 @@
-# Basic Typescript Example
+# Strife EU Clan Website
 
-A simple [create-react-app](CRA-README.md) setup, showcasing one of the latest React-Bootstrap components!
+Marketing site for Clan
+
+Application built using React and Typescript.
+
+## Run locally
+
+    yarn start
+
+## Deploy to Firebase
+
+    yarn build
+    firebase deploy
