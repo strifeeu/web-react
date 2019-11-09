@@ -17,17 +17,13 @@ const DestinyMembers: React.FC = () => {
     const [members, membersUpdate] = useState(new Array<MemberHolder>());
 
     useEffect(() => {
-        Axios.get('https://www.bungie.net/Platform/GroupV2/3398023/Members/', {
-            headers: {
-            'X-API-Key': '938d2ce8722247099f4ddfd80e5d2703'
-            }
-        }).then(function(response) {
+        Axios.get('https://strife-eu.appspot.com/members').then(function(response) {
           var memberArray = new Array<MemberHolder>();
-          response.data.Response.results.map((member : any, index : number) => (
+          response.data.map((member : any, index : number) => (
             memberArray.push({
-                id : member.bungieNetUserInfo.membershipId,
-                displayName : member.destinyUserInfo.displayName,
-                imageURL : 'https://www.bungie.net' + member.bungieNetUserInfo.iconPath
+                id : member.id,
+                displayName : member.nickname,
+                imageURL : member.avatarURL
               })
           ));
           shuffleArray(memberArray);
